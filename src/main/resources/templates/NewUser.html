@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="NewUser.css">
-    <meta charset="UTF-8">
-    <title>New title</title>
+    <title>Getting Started: Handing Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<form>
-    <input type="text" placeholder="Login"><br>
-    <input type="number" placeholder="Number of"><br>
-    <input type="date" placeholder="Date"><br>
-    <input type="image" placeholder="Choose image"><br>
-    <button type="submit"> Сохранить</button>
-</form>
+    <h1>Result</h1>
+    <p th:text="'Name ' + ${login.name}" />
+    <p th:text="'Email: ' + ${login.email}" />
+    <a href="/login">Submit another message</a>
 </body>
 </html>

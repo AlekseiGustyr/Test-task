@@ -12,11 +12,14 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     @Column
     private String name;
+
+    @Column
+    private String password;
 
     @Column
     private String email;

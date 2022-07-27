@@ -5,7 +5,7 @@
  */
 package com.sandbox.api;
 
-import com.sandbox.model.Wallet;
+import com.sandbox.model.LogIn;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -29,37 +29,40 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-27T16:53:11.784207700+03:00[Europe/Minsk]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-27T19:24:32.513279800+03:00[Europe/Minsk]")
 @Validated
-@Tag(name = "wallet", description = "the wallet API")
-public interface WalletApi {
+@Tag(name = "api", description = "the api API")
+public interface ApiApi {
 
     /**
-     * GET /wallet : Returns  of user&#39;s wallets.
-     * Returns a list of user&#39;s wallets.
+     * POST /api/authentication/login : LogIn
+     * As a User I want to to have a login functionality so that I can get an access to my User account
      *
-     * @return A list of user&#39;s wallets (status code 200)
+     * @param logIn  (required)
+     * @return ok (status code 200)
+     *         or Invalid Email or Password (status code 401)
+     *         or Wrong Email or Password format (status code 422)
      */
     @Operation(
-        operationId = "viewWallets",
-        summary = "Returns  of user's wallets.",
-        tags = { "wallet" },
+        operationId = "logIn",
+        summary = "LogIn",
+        tags = { "User Management" },
         responses = {
-            @ApiResponse(responseCode = "200", description = "A list of user's wallets", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = Wallet.class))
-            })
+            @ApiResponse(responseCode = "200", description = "ok"),
+            @ApiResponse(responseCode = "401", description = "Invalid Email or Password"),
+            @ApiResponse(responseCode = "422", description = "Wrong Email or Password format")
         },
         security = {
             @SecurityRequirement(name = "bearerAuth")
         }
     )
     @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/wallet",
-        produces = { "application/json" }
+        method = RequestMethod.POST,
+        value = "/api/authentication/login",
+        consumes = { "application/json" }
     )
-    ResponseEntity<List<Wallet>> viewWallets(
-        
+    ResponseEntity<Void> logIn(
+        @Parameter(name = "LogIn", description = "", required = true) @Valid @RequestBody LogIn logIn
     );
 
 }

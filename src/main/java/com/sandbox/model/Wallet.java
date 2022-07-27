@@ -20,7 +20,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("wallet")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-27T19:24:32.513279800+03:00[Europe/Minsk]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-27T20:59:23.376174800+03:00[Europe/Minsk]")
 public class Wallet {
 
   @JsonProperty("id")

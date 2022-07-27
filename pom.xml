@@ -11,7 +11,7 @@
 
     <groupId>com.sandbox</groupId>
     <artifactId>rest-api</artifactId>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>rest-api</name>
     <description>Generate interfaces based on openApi specification</description>
     <modelVersion>4.0.0</modelVersion>

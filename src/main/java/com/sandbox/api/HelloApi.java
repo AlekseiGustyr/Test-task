@@ -5,7 +5,6 @@
  */
 package com.sandbox.api;
 
-import com.sandbox.model.LogIn;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -31,38 +30,35 @@ import javax.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-27T20:59:23.376174800+03:00[Europe/Minsk]")
 @Validated
-@Tag(name = "api", description = "the api API")
-public interface ApiApi {
+@Tag(name = "hello", description = "the hello API")
+public interface HelloApi {
 
     /**
-     * POST /api/authentication/login : LogIn
-     * As a User I want to to have a login functionality so that I can get an access to my User account
+     * GET /hello : Returns a &#39;hello world&#39; string.
+     * Returns a &#39;hello world&#39; string.
      *
-     * @param logIn  (required)
-     * @return ok (status code 200)
-     *         or Invalid Email or Password (status code 401)
-     *         or Wrong Email or Password format (status code 422)
+     * @return A list of user&#39;s wallets (status code 200)
      */
     @Operation(
-        operationId = "logIn",
-        summary = "LogIn",
-        tags = { "User Management" },
+        operationId = "hello",
+        summary = "Returns a 'hello world' string.",
+        tags = { "hello world sample" },
         responses = {
-            @ApiResponse(responseCode = "200", description = "ok"),
-            @ApiResponse(responseCode = "401", description = "Invalid Email or Password"),
-            @ApiResponse(responseCode = "422", description = "Wrong Email or Password format")
+            @ApiResponse(responseCode = "200", description = "A list of user's wallets", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))
+            })
         },
         security = {
             @SecurityRequirement(name = "bearerAuth")
         }
     )
     @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/api/authentication/login",
-        consumes = { "application/json" }
+        method = RequestMethod.GET,
+        value = "/hello",
+        produces = { "application/json" }
     )
-    ResponseEntity<Void> logIn(
-        @Parameter(name = "LogIn", description = "", required = true) @Valid @RequestBody LogIn logIn
+    ResponseEntity<String> hello(
+        
     );
 
 }

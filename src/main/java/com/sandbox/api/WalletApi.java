@@ -29,20 +29,20 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-27T11:59:10.657484900+03:00[Europe/Minsk]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-27T16:53:11.784207700+03:00[Europe/Minsk]")
 @Validated
 @Tag(name = "wallet", description = "the wallet API")
 public interface WalletApi {
 
     /**
-     * GET /wallet : Returns a list of user&#39;s wallets.
+     * GET /wallet : Returns  of user&#39;s wallets.
      * Returns a list of user&#39;s wallets.
      *
      * @return A list of user&#39;s wallets (status code 200)
      */
     @Operation(
         operationId = "viewWallets",
-        summary = "Returns a list of user's wallets.",
+        summary = "Returns  of user's wallets.",
         tags = { "wallet" },
         responses = {
             @ApiResponse(responseCode = "200", description = "A list of user's wallets", content = {
